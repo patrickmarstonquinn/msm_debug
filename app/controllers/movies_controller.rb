@@ -33,7 +33,6 @@ class MoviesController < ApplicationController
     @description = Movie.find(@id).description
     @image_url = Movie.find(@id).image_url
     @director_id = Movie.find(@id).director_id
-    # @movie = params[:director_id]
     m = Movie.find(@id)
     m.title = params[:title]
     m.year = params[:year]
@@ -46,20 +45,7 @@ class MoviesController < ApplicationController
 
     redirect_to("/movies/#{@id}")
 
-    #   @id = params["id"]
-    # @title = Movie.find(@id).title
-    # @year = Movie.find(@id).year
-    # @duration = Movie.find(@id).duration
-    # @description = Movie.find(@id).description
-    # @image_url = Movie.find(@id).image_url
-    # m = Movie.find(@id)
-    # m.title = params[:title]
-    # m.year = params[:year]
-    # m.duration = params[:duration]
-    # m.image_url = params[:image_url]
-    # m.description = params[:description]
-    # m.save
-    # redirect_to("/movie/#{@id}")
+
   end
 
   def destroy

@@ -27,16 +27,20 @@ class ActorsController < ApplicationController
   end
 
   def update_row
-    @actor = Actor.find(params[:id])
 
-    @actor.dob = params[:dob]
-    @actor.name = params[:name]
-    @actor.bio = params[:bio]
-    @actor.image_url = params[:image_url]
+    @id = params["id"]
+    @name = Actor.find(@id).name
+    @dob = Actor.find(@id).dob
+    @bio = Actor.find(@id).bio
+    @image_url = Actor.find(@id).image_url
+    a = Actor.find(@id)
+    a.name = params[:name]
+    a.dob = params[:dob]
+    a.bio = params[:bio]
+    a.image_url = params[:image_url]
+    a.save
 
-    @actor.save
-
-    render("show")
+    redirect_to("/actors/#{@id}")
   end
 
   def destroy
